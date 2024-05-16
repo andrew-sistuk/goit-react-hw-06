@@ -3,7 +3,7 @@ import css from './Contact.module.css';
 import { FaUserAstronaut } from 'react-icons/fa';
 import { CgSmartphone } from 'react-icons/cg';
 
-export default function Contact({ contact: {id, name, number}, onDelete }) {
+export function Contact({ contact: {id, name, number}, onDelete }) {
   return (
     <li className={css['contact-box']}>
       <div className={css['contact-info']}>

@@ -1,10 +1,10 @@
-import Contact from '../Contact/Contact';
+import { Contact } from 'components';
 
-export default function ContactList({ contacts, onDelete }) {
+export function ContactList({ contacts, onDelete }) {
   return (
     <ul>
       {contacts.map(contact => (
-        <Contact key={contact.id} contact={contact} onDelete={onDelete}/>
+        <Contact key={contact.id} contact={contact} onDelete={onDelete} />
       ))}
     </ul>
   );

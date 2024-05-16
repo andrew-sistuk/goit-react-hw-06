@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 
 import { useId } from 'react';
 
-export default function ContactForm({initialValues, onSubmit}) {
+export function ContactForm({initialValues, onSubmit}) {
   const id = useId();
 
   const FeedbackSchema = Yup.object().shape({

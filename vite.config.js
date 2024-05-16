@@ -6,5 +6,11 @@ export default defineConfig({
   plugins: [react()],
   build: {
     sourcemap: true,
-  }
+  },
+  resolve: {
+    alias: {
+      components: '/src/components',
+      redux: '/src/redux',
+    },
+  },
 })

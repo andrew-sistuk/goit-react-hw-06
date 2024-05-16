@@ -1,5 +1,6 @@
-import css from './SearchBox.module.css'
-export default function SearchBox({value, onFilter}) {
+import css from './SearchBox.module.css';
+
+export function SearchBox({value, onFilter}) {
   return (
     <div className={css['search-box']}>
       <label className={css['search-label']} htmlFor="searhbox">Find contacts by name</label>
