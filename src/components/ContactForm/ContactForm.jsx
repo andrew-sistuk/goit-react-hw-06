@@ -23,7 +23,7 @@ export function ContactForm({ initialValues }) {
     dispatch(
       addContact({
         id: nanoid(),
-        name,
+        name: name.trim(),
         number,
       })
     );

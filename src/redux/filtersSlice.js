@@ -5,7 +5,12 @@ export const filtersSlice = createSlice({
   initialState: { name: '' },
   reducers: {
     filterContacts(state, action) {
-      return state;
+      console.log(action.payload);
+      state.name = action.payload;
     },
   },
 });
+
+export const { filterContacts } = filtersSlice.actions;
+
+export const filtersSliceReducer = filtersSlice.reducer;
