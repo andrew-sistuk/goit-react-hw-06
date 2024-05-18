@@ -2,8 +2,8 @@ import { Contact } from 'components';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { deleteContact } from '../../redux/contactsSlice';
-import { getFilter, getItems } from '../../redux/selectors';
+import { deleteContact } from '../../myredux/contactsSlice';
+import { getFilter, getItems } from '../../myredux/selectors';
 
 export function ContactList() {
   const currentContacts = useSelector(getItems);
@@ -11,8 +11,10 @@ export function ContactList() {
 
   const dispatch = useDispatch();
 
-  const visibleValue = currentContacts.filter(item =>
-    item.name.toLowerCase().includes(filter.toLowerCase()) || item.number.includes(filter.toLowerCase())
+  const visibleValue = currentContacts.filter(
+    item =>
+      item.name.toLowerCase().includes(filter.toLowerCase().trim()) ||
+      item.number.includes(filter.toLowerCase().trim())
   );
 
   return (

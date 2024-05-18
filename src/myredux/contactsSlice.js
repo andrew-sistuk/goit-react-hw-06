@@ -12,37 +12,39 @@ export const contactsSlice = createSlice({
     ],
   },
   reducers: {
-    addContact(state, action) {
-      console.log(action);
-      state.items.push({
-        id: nanoid(),
-        name: action.payload.name,
-        number: action.payload.number,
-      });
-
-      console.log(state.items);
-      console.log(action.payload.name);
+    addContact: {
+      reducer: (state, action) => {
+        console.log(action);
+        state.items.push({
+          id: nanoid(),
+          name: action.payload.name,
+          number: action.payload.number,
+        });
+  
+        console.log(state.items);
+        console.log(action.payload.name);
+      },
+      prepere(name, number) {
+        return {
+          payload: {
+            id: nanoid(),
+            name: name.trim(),
+            number,
+          },
+        };
+      },
     },
-
-    deleteContact(state, action) {
+    
+    deleteContact: (state, action) => {
       state.items.splice(
         state.items.findIndex(item => item.id === action.payload),
         1
       );
     },
 
-    prepere(id, name, number) {
-      return {
-        payload: {
-          id,
-          name,
-          number,
-        },
-      };
-    },
   },
 });
 
 export const { addContact, deleteContact } = contactsSlice.actions;
 
-export const contactsSliceReducer = contactsSlice.reducer;
+export default contactsSlice.reducer;

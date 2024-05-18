@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from './SearchBox.module.css';
-import { getFilter } from '../../redux/selectors';
-import { filterContacts } from '../../redux/filtersSlice';
+import { getFilter } from '../../myredux/selectors';
+import { filterContacts } from '../../myredux/filtersSlice';
 
 export function SearchBox() {
   const filter = useSelector(getFilter);
@@ -16,7 +16,7 @@ export function SearchBox() {
         className={css['search-field']}
         type="text"
         value={filter}
-        onChange={evt => dispatch(filterContacts(evt.target.value.trim()))}
+        onChange={evt => dispatch(filterContacts(evt.target.value))}
         placeholder="Input name"
         name="searhbox"
       />
