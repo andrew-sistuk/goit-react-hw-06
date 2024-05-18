@@ -1,10 +1,20 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 
-const appState = {
-  contacts: {
-    items: [],
+import { contactsSliceReducer } from './contactsSlice';
+
+export const appState = configureStore({
+  reducer: {
+    contacts: contactsSliceReducer
   },
-  filters: {
-    name: '',
-  },
-};
+});
+
+// export const appState = console.log('Ok path');
+
+//  appState;
+
+// contacts: {
+//   items: [],
+// },
+// filters: {
+//   name: '',
+// },

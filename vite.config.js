@@ -10,7 +10,7 @@ export default defineConfig({
   resolve: {
     alias: {
       components: '/src/components',
-      redux: '/src/redux',
+      // myredux: '/src/myredux',
     },
   },
 })
