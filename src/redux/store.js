@@ -32,7 +32,7 @@ export const appState = configureStore({
     contacts: contactsPersistedReducer,
     filters: filtersPersistedReducer,
   },
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],

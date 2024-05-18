@@ -1,15 +1,11 @@
+import { useSelector } from 'react-redux';
+
 import { Contact } from 'components';
-
-import { useDispatch, useSelector } from 'react-redux';
-
-import { deleteContact } from '../../myredux/contactsSlice';
-import { getFilter, getItems } from '../../myredux/selectors';
+import { selectNameFilter, selectContacts } from '../../redux/selectors';
 
 export function ContactList() {
-  const currentContacts = useSelector(getItems);
-  const filter = useSelector(getFilter);
-
-  const dispatch = useDispatch();
+  const currentContacts = useSelector(selectContacts);
+  const filter = useSelector(selectNameFilter);
 
   const visibleValue = currentContacts.filter(
     item =>
@@ -21,11 +17,7 @@ export function ContactList() {
     visibleValue && (
       <ul>
         {visibleValue.map(contact => (
-          <Contact
-            key={contact.id}
-            contact={contact}
-            onDelete={() => dispatch(deleteContact(contact.id))}
-          />
+          <Contact key={contact.id} contact={contact} />
         ))}
       </ul>
     )

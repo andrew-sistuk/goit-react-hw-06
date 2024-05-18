@@ -1,12 +1,12 @@
-import './index.css';
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import App from './App.jsx';
-import { appState, persistor } from './myredux/store.js';
+import { appState, persistor } from './redux/store.js';
+
+import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

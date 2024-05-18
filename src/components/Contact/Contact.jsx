@@ -1,9 +1,14 @@
-import css from './Contact.module.css';
-
 import { FaUserAstronaut } from 'react-icons/fa';
 import { CgSmartphone } from 'react-icons/cg';
+import { useDispatch } from 'react-redux';
 
-export function Contact({ contact: {id, name, number}, onDelete }) {
+import { deleteContact } from '../../redux/contactsSlice';
+
+import css from './Contact.module.css';
+
+export function Contact({ contact: { id, name, number } }) {
+  const dispatch = useDispatch();
+
   return (
     <li className={css['contact-box']}>
       <div className={css['contact-info']}>
@@ -16,7 +21,9 @@ export function Contact({ contact: {id, name, number}, onDelete }) {
           <p>{number}</p>
         </div>
       </div>
-      <button type='button' onClick={() => onDelete(id)}>Delete</button>
+      <button type="button" onClick={() => dispatch(deleteContact(id))}>
+        Delete
+      </button>
     </li>
   );
 }

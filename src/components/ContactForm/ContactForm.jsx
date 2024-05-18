@@ -1,15 +1,14 @@
-import css from './ContactForm.module.css';
-
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import { useId } from 'react';
 import * as Yup from 'yup';
 
-import { addContact } from '../../myredux/contactsSlice';
+import { addContact } from '../../redux/contactsSlice';
+import { initialValues } from '../../redux/constants';
 
+import css from './ContactForm.module.css';
 
-
-export function ContactForm({ initialValues }) {
+export function ContactForm() {
   const id = useId();
   const dispatch = useDispatch();
 
